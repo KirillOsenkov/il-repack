@@ -29,8 +29,8 @@ namespace ILRepacking
         private readonly IRepackContext _repackContext;
         private readonly RepackOptions _options;
         private readonly Dictionary<AssemblyDefinition, int> _aspOffsets;
-        private readonly Dictionary<ImportDebugInformation, ImportDebugInformation> _importDebugInformations = new();
-        private readonly static Instruction _dummyInstruction = Instruction.Create(OpCodes.Nop);
+        //private readonly Dictionary<ImportDebugInformation, ImportDebugInformation> _importDebugInformations = new();
+        //private readonly static Instruction _dummyInstruction = Instruction.Create(OpCodes.Nop);
 
         public RepackImporter(
             ILogger logger,
@@ -427,7 +427,7 @@ namespace ILRepacking
             if (meth.HasBody)
                 CloneTo(meth.Body, nm);
 
-            nm.DebugInformation.Scope = CopyScope(meth.DebugInformation.Scope, nm, out _);
+            //nm.DebugInformation.Scope = CopyScope(meth.DebugInformation.Scope, nm, out _);
 
             meth.Body = null; // frees memory
 
@@ -438,6 +438,7 @@ namespace ILRepacking
             nm.CallingConvention = meth.CallingConvention;
         }
 
+        /*
         private ScopeDebugInformation CopyScope(ScopeDebugInformation scope, MethodDefinition nm, out bool copied)
         {
             copied = false;
@@ -503,6 +504,7 @@ namespace ILRepacking
             _importDebugInformations.Add(import, ni);
             return ni;
         }
+        */
 
         private void CloneTo(MethodBody body, MethodDefinition parent)
         {
