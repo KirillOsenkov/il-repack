@@ -21,6 +21,8 @@
     <Compile Include="PdbStrTest.cs" />
     <Compile Include="RepackLoggerTests.cs" />
     <Compile Include="RepackOptionsTests.cs" />
+    <Compile Include="TestLogger.cs" />
+    <Compile Include="Win32ResourcesTests.cs" />
     <Compile Include="Steps\ResourceProcessing\BamlGeneratorTests.cs" Condition=" '$(Configuration)' != 'Debug_unix' " />
     <Compile Include="Steps\ResourceProcessing\BamlResourcePatcherTests.cs" />
     <Compile Include="Steps\SourceServerData\HttpSourceServerDescriptorTest.cs" />
@@ -31,6 +33,8 @@
   <ItemGroup>
     <ProjectReference Include="..\cecil\Mono.Cecil.csproj" />
     <ProjectReference Include="..\ILRepack.IntegrationTests\Scenarios\ClassLibrary\ClassLibrary.csproj" />
+    <ProjectReference Include="..\ILRepack.IntegrationTests\Scenarios\Win32ResourceDll\Win32ResourceDll.csproj" />
+    <ProjectReference Include="..\ILRepack.IntegrationTests\Scenarios\Win32ResourceDll.Consumer\Win32ResourceDll.Consumer.csproj" />
     <ProjectReference Include="..\ILRepack\ILRepack.csproj" />
   </ItemGroup>
   <ItemGroup>
